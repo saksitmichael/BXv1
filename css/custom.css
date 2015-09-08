@@ -1,8 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);*/
 
-.test{
-    background-color: lightskyblue;
-}
+
 .brand-img{
     height: 100%;
     width: auto;
@@ -13,39 +11,63 @@
     background-repeat: no-repeat;
     width: 100%;
 }
-.header-logo{
-    margin-top: 60px;
+.header-img h2{
+    color:white ;
+}
+
+.header-logo-container{
     width: 100%;
 }
+footer{
+    border: 1px solid lightgray;
+    margin-top: 40px;
+    color: gray;
+}
+footer .copyright{
+    color: lightgrey;
+}
+
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
-@media (min-width: 100px) {
+@media (min-width: 100px) and (max-width: 767px) {
     .header-img{
-        height: 400px;
+        height: 300px;
     }
     .header-logo{
-        margin-top:70px;
+        /*margin-top:80px;*/
+        display: block;
+        margin:90px auto 0 auto;
+        width: 300px;
+        height: auto;
     }
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
+    .header-img{
+        height: 400px;
+    }
+    .header-logo{
+        display: block;
+        margin:100px auto 0 auto;
+        width: 500px;
+        height: auto;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .header-logo{
-        margin-top:120px;
-    }
+    /*.header-logo{*/
+        /*margin-top:100px;*/
+    /*}*/
 
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .header-logo{
-        margin-top:100px;
-    }
+    /*.header-logo{*/
+        /*margin-top:80px;*/
+    /*}*/
 
 }
