@@ -56,33 +56,35 @@
                 <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-3 col-lg-offset-3">
                     <h1 class="text-center">REGISTER</h1>
                     <div class="alert alert-warning" role="alert">All fields are required, Thank you! :)</div>
-                    <form>
+                    <form method="post">
+                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                         <div class="form-group form-group-lg">
                             <label for="Name">Name</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+                            <input name="userName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
                         </div>
                         <div class="form-group form-group-lg">
                             <label for="Surname">Surname</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Surname">
+                            <input name="userSurname" type="text" class="form-control" id="exampleInputEmail1" placeholder="Surname">
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="Surname">Phone</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Phone">
+                            <label for="Phone">Phone</label>
+                            <input name="userPhone" type="text" class="form-control" id="exampleInputEmail1" placeholder="Phone">
                         </div>
                         <div class="form-group form-group-lg">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <input name="userEmail" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                         </div>
                         <div class="form-group form-group-lg">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                         </div>
                         <div class="form-group form-group-lg">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+                            <input name="password_confirmation" type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="exampleInputPassword1">Who are you?</label>
-                            <select class="form-control">
+                            <label for="Kind">Who are you?</label>
+                            <select name="userKind" class="form-control">
                                 <option>Implementor</option>
                                 <option>Investor</option>
                                 <option>Academia</option>
@@ -92,12 +94,12 @@
                             </select>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="exampleInputPassword1">Organization</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Organization">
+                            <label for="Organization">Organization</label>
+                            <input name="userOrganization" type="text" class="form-control" id="exampleInputPassword1" placeholder="Organization">
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="exampleInputPassword1">Country</label>
-                            <select class="form-control">
+                            <label for="Country">Country</label>
+                            <select name="userCountry" class="form-control">
                                 <option>Thailand</option>
                                 <option>China</option><!-- 
                                 <option>Academia</option>
