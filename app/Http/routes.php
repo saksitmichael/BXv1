@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome',['Name' => 'User1']);
+	return view('register');
+});
+
+Route::get('regis',function() {
+	return view('register');
 });
