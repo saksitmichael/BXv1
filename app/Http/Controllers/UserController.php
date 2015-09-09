@@ -11,20 +11,22 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Users;
 use Hash;
+use Auth;
+// use Redirect;
+// use App\Http\Requests\LoginRequest;
+// use App\Http\Controllers\Auth\AuthController;
 
 class UserController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
     public function getRegister(){
-        return view('register');
+        return view('auth/register');
     }
 
     public function postRegister(Request $request){
     	$input = $request->all();
     	$user = new Users;
-        // $user->userID
         $user->userName = $input['userName'];
         $user->userSurname = $input['userSurname'];
         $user->userPhone = $input['userPhone'];
@@ -38,19 +40,49 @@ class UserController extends BaseController
     	$user->mailSubscribe = 0;
     	$user->save();
 
-    	return response()->json('done'=>true);
-        // return $input;
-
+    	return response()->json(['done'=>true]);
     }
 
     public function getLogin(){
-        return view('login');
+        return view('auth/login');
+    }
+
+    public function getLogout(){
+        Auth::logout();
+        return 'Log out Successful';
     }
 
     public function postLogin(Request $request){
+ 
         $input = $request->all();
+        $credentials = [
+            'userEmail' => $input['userEmail'],
+            'password' => $input['userPassword'],
+        ];
+        if (Auth::attempt($credentials)){
+            return 'Success!';
+        }
+        else{
+            return 'Failed';
+        }
+        // return ($this->authentication($request));
+    }
 
-        
+    public function getUser(){
+        if(Auth::check()){
+            return Auth::user();
+        }else{
+            return 'Didn\'t log in';
+        }
+    }
+
+
+    public function get(){
+        return $this->getLogin();
+    }
+
+    public function post(Request $request){
+        return $this->postLogin($request);
     }
 
 }
